@@ -20,7 +20,7 @@
     "build:prod": "ng build --optimization --progress --subresource-integrity --delete-output-path"
   },
   "dependencies": {
-    "@angular/animations": "^14.1.0",
+    "@angular/animations": "^14.1.3",
     "@angular/common": "^14.1.0",
     "@angular/compiler": "^14.1.0",
     "@angular/core": "^14.1.0",
