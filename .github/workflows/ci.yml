@@ -30,15 +30,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Check eslint
+      - name: (check:) eslint
         run: npm run check:eslint
 
-      - name: Check prettier
+      - name: (check:) prettier
         run: npm run check:prettier
 
-      - name: Check Test Coverage
+      - name: (check:) coverage
         timeout-minutes: 15
         run: npm run check:coverage
 
-      - name: Build Project
+      - name: (build:) production
         run: npm run build:prod
