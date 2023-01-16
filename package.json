@@ -1,10 +1,10 @@
 {
-  "name": "angular-tpl",
-  "version": "0.0.0",
+  "name": "angular-base",
+  "version": "0.0.1",
   "license": "MIT",
   "engines": {
-    "node": "^16.10.0",
-    "npm": "^8.3.1"
+    "node": ">=18.12.0 <19",
+    "npm": ">=8.6.0"
   },
   "private": true,
   "scripts": {
@@ -12,12 +12,13 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "run-s -l check:* build:prod",
     "check:eslint": "eslint \"src/**/*.ts\"",
     "check:prettier": "prettier --check \"src/**/*.ts\"",
     "check:coverage": "ng test --no-watch --code-coverage --browsers=ChromeHeadless",
+    "check:e2e": "ng test --watch=false --code-coverage",
     "build:prod": "ng build --optimization --progress --subresource-integrity --delete-output-path",
-    "local:ci": "run-s -l check:*  build:prod"
+    "local:ci": "run-s -l check:* build:prod"
   },
   "dependencies": {
     "@angular/animations": "^14.2.0",
