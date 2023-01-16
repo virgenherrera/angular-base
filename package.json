@@ -17,7 +17,6 @@
     "check:eslint": "eslint \"src/**/*.ts\"",
     "check:prettier": "prettier --check \"src/**/*.ts\"",
     "check:coverage": "ng test --no-watch --code-coverage --browsers=ChromeHeadless",
-    "check:e2e": "ng test --watch=false --code-coverage",
     "build:prod": "ng build --optimization --progress --subresource-integrity --delete-output-path",
     "local:ci": "run-s -l check:* build:prod"
   },
