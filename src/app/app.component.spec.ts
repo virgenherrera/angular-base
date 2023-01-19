@@ -1,31 +1,28 @@
-import { TestBed } from '@angular/core/testing';
+import { createComponentFactory, Spectator } from '@ngneat/spectator';
 import { AppComponent } from './app.component';
 
-describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [AppComponent],
-    }).compileComponents();
+describe(`UT: ${AppComponent.name}`, () => {
+  const enum should {
+    createInstance = 'should create the app',
+    haveTitleAndRenderIt = "should have as title 'angular-tpl' and redder it",
+  }
+
+  const createComponent = createComponentFactory({
+    component: AppComponent,
+  });
+  let spectator: Spectator<AppComponent> = null;
+
+  beforeEach(() => (spectator = createComponent()));
+
+  it(should.createInstance, () => {
+    expect(spectator).not.toBeNull();
+    expect(spectator.component).toBeInstanceOf(AppComponent);
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'angular-tpl'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-tpl');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain(
-      'angular-tpl app is running!',
+  it(should.haveTitleAndRenderIt, () => {
+    expect(spectator.component).toHaveProperty('title');
+    expect(spectator.query('.card.highlight-card.card-small span')).toHaveText(
+      spectator.component.title,
     );
   });
 });
