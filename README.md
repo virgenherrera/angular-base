@@ -19,7 +19,7 @@ npm install
 $ npm run start
 
 # production mode.
-$ npm run build:prod && npx http-server ./dist/angular-tpl/
+$ npm run build:prod && npx http-server ./dist/angular-base/
 ```
 
 ## Testing the app
