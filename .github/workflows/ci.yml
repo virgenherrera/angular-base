@@ -33,9 +33,9 @@ jobs:
       - name: (check:) eslint
         run: npm run check:eslint
 
-      - name: (check:) coverage
+      - name: (check:) Unit Test
         timeout-minutes: 15
-        run: npm run check:coverage
+        run: npm run check:UT
 
       - name: (build:) production
         run: npm run build:prod
