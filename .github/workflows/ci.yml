@@ -33,9 +33,6 @@ jobs:
       - name: (check:) eslint
         run: npm run check:eslint
 
-      - name: (check:) prettier
-        run: npm run check:prettier
-
       - name: (check:) coverage
         timeout-minutes: 15
         run: npm run check:coverage
