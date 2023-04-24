@@ -1,6 +1,6 @@
 {
   "name": "angular-base",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "license": "MIT",
   "engines": {
     "node": ">=18.12.0 <19",
@@ -8,17 +8,16 @@
   },
   "private": true,
   "scripts": {
-    "ng": "ng",
+    "test": "run-s -l cleanup test:* build:prod",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "run-s -l cleanup check:* build:prod",
     "UT:develop": "ng test --watch --code-coverage --browsers=ChromeHeadless",
-    "cleanup": "rimraf coverage/ dist/",
-    "check:eslint": "eslint \"src/**/*.ts\"",
-    "check:UT": "ng test --no-watch --code-coverage --browsers=ChromeHeadless",
+    "test:CI": "npm ci",
+    "test:static": "eslint \"src/**/*.ts\"",
+    "test:unit": "ng test --no-watch --code-coverage --browsers=ChromeHeadless",
     "build:prod": "ng build --optimization --progress --subresource-integrity --delete-output-path",
-    "local:ci": "run-s -l cleanup check:* build:prod"
+    "cleanup": "rimraf .angular/ coverage/ dist/"
   },
   "dependencies": {
     "@angular/animations": "^15.2.7",
@@ -39,19 +38,19 @@
     "@angular/compiler-cli": "^15.2.7",
     "@ngneat/spectator": "^14.0.0",
     "@types/jasmine": "~4.3.1",
-    "@typescript-eslint/eslint-plugin": "^5.58.0",
-    "@typescript-eslint/parser": "^5.58.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint": "^8.38.0",
+    "eslint": "^8.39.0",
     "jasmine-core": "~4.6.0",
-    "karma-chrome-launcher": "~3.1.1",
+    "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "karma-jasmine": "~5.1.0",
-    "karma": "~6.4.1",
+    "karma": "~6.4.2",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.8.7",
+    "prettier": "^2.8.8",
     "rimraf": "^5.0.0",
     "typescript": "~4.9.4"
   }
