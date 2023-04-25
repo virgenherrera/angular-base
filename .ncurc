@@ -1,0 +1,10 @@
+{
+  "upgrade": true,
+  "reject": [
+    "@angular/*",
+    "rxjs",
+    "tslib",
+    "typescript",
+    "zone.js"
+  ]
+}
