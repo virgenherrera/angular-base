@@ -1,41 +1,41 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+# CI pipeline mirroring the local scripts used by developers
 
-name: Continuos Integration
+name: Continuous Integration
 
 on:
   pull_request:
     branches:
-      - develop
-      - stage
       - master
 
 jobs:
   code-quality:
     name: Code Quality
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.12.x]
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v6
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: "npm"
+          version: "10.26.2"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24.12.0"
+          cache: "pnpm"
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: (Test:) static
-        run: npm run test:static
+        run: pnpm run test:static
 
       - name: (Test:) Unit
         timeout-minutes: 15
-        run: npm run test:unit
+        run: pnpm run test:unit
 
-      - name: (build:) Project
-        run: npm run build:prod
+      - name: (Build:) Project
+        run: pnpm run build:app
