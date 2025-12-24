@@ -3,29 +3,35 @@
   "codemetrics.basics.EnabledForHTML": false,
   "codemetrics.basics.MetricsForClassDeclarationsToggled": false,
   "editor.codeActionsOnSave": {
-    "source.organizeImports": true,
-    "source.fixAll.eslint": true
+    "source.organizeImports": "always",
+    "source.fixAll.eslint": "always"
   },
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  "editor.formatOnSave": false,
+  "editor.minimap.enabled": false,
   "emmet.triggerExpansionOnTab": true,
-  "errorLens.delay": 2e3,
+  "errorLens.delay": 3000,
   "errorLens.messageTemplate": "$severity: $message",
   "eslint.format.enable": true,
   "eslint.options": {
-    "overrideConfigFile": ".eslintrc.json",
-    "ignore": true
+    "overrideConfigFile": "eslint.config.mjs"
   },
-  "eslint.validate": [
-    "javascript",
-    "json",
-    "typescript"
-  ],
+  "eslint.validate": ["javascript", "json", "typescript", "mjs"],
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
   "git.autofetch": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "npm.packageManager": "pnpm",
   "typescript.preferences.importModuleSpecifier": "relative",
   "typescript.referencesCodeLens.enabled": true,
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.updateImportsOnFileMove.enabled": "always",
+  "[html]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
@@ -35,9 +41,7 @@
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
-  "cSpell.words": [
-    "linebreak",
-    "ngneat",
-    "paren"
-  ],
+  "[mjs]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  }
 }
