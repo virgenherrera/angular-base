@@ -6,6 +6,7 @@
     "test": "pnpm run cleanup && pnpm run test:static && pnpm run test:unit && pnpm run build:app",
     "build": "pnpm run build:app",
     "watch": "ng build --watch --configuration development",
+    "test:doctor": "pnpm run cleanup && pnpm run eslintCheck && pnpm run prettierCheck && pnpm run test:unit && pnpm run build:app",
     "test:unit": "ng test --configuration=ci",
     "test:static": "pnpm run securityCheck && pnpm run eslintCheck && pnpm run prettierCheck",
     "watch:UT": "ng test --configuration=watch",
@@ -16,47 +17,47 @@
     "prettierCheck": "prettier --check \"{src,public}/**/*.{ts,js,json,scss,html,md}\"",
     "prepare": "husky",
     "lintStaged": "lint-staged",
-    "bumpDependencies": "pnpm dlx npm-check-updates"
+    "bumpDependencies": "pnpm dlx npm-check-updates",
+    "updatePnpm": "pnpm self-update"
   },
   "engines": {
-    "node": ">=24.12.0 <25"
+    "node": ">=24.13.0 <25"
   },
-  "packageManager": "pnpm@10.27.0",
+  "packageManager": "pnpm@10.28.2",
   "private": true,
   "dependencies": {
-    "@angular/common": "^21.0.6",
-    "@angular/compiler": "^21.0.6",
-    "@angular/core": "^21.0.6",
-    "@angular/forms": "^21.0.6",
-    "@angular/platform-browser": "^21.0.6",
-    "@angular/router": "^21.0.6",
+    "@angular/common": "^21.1.2",
+    "@angular/compiler": "^21.1.2",
+    "@angular/core": "^21.1.2",
+    "@angular/forms": "^21.1.2",
+    "@angular/platform-browser": "^21.1.2",
+    "@angular/router": "^21.1.2",
     "rxjs": "~7.8.2",
     "tslib": "^2.8.1"
   },
   "devDependencies": {
-    "@angular/build": "^21.0.4",
-    "@angular/cli": "^21.0.4",
-    "@angular/compiler-cli": "^21.0.6",
+    "@angular/build": "^21.1.2",
+    "@angular/cli": "^21.1.2",
+    "@angular/compiler-cli": "^21.1.2",
     "@eslint/js": "^9.39.2",
-    "@types/node": "^25.0.3",
-    "@vitest/coverage-v8": "^4.0.16",
+    "@types/node": "^25.2.0",
+    "@vitest/coverage-v8": "^4.0.18",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.4",
-    "globals": "^17.0.0",
+    "eslint-plugin-prettier": "^5.5.5",
+    "globals": "^17.3.0",
     "husky": "^9.1.7",
-    "jsdom": "^27.4.0",
+    "jsdom": "^28.0.0",
     "lint-staged": "^16.2.7",
-    "prettier": "^3.7.4",
+    "prettier": "^3.8.1",
     "rimraf": "^6.1.2",
     "typescript": "~5.9.3",
-    "typescript-eslint": "^8.52.0",
-    "vitest": "^4.0.16"
+    "typescript-eslint": "^8.54.0",
+    "vitest": "^4.0.18"
   },
   "pnpm": {
     "overrides": {
-      "@modelcontextprotocol/sdk@<1.25.2": ">=1.25.2",
-      "qs@<6.14.1": ">=6.14.1"
+      "@modelcontextprotocol/sdk@>=1.10.0 <=1.25.3": ">=1.26.0"
     }
   }
 }
