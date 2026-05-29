@@ -5,6 +5,6 @@
   "enginesNode": true,
   "format": ["group"],
   "packageManager": "pnpm",
-  "reject": ["pnpm"],
+  "reject": ["pnpm", "typescript"],
   "upgrade": true
 }
