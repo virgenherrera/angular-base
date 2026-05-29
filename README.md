@@ -29,7 +29,7 @@ Lean Angular 21 starter tuned for fast feedback, predictable builds, and editor-
 
 - **Mini CI locally**: `pnpm test` runs cleanup, security audit, ESLint, Prettier check, unit tests, and a production build in one go.
 - **bumpDependencies flow**: `pnpm run bumpDependencies` updates dependency ranges, then `pnpm run test:doctor` validates cleanup, lint, format, unit, and build without running `pnpm audit` (avoids advisory failures during the bump); pre-commit still runs the full `pnpm test` with audit before committing.
-- **Other checks**: `pnpm run test:static` (security + lint + format), `pnpm run test:unit` (Angular tests), `pnpm run build:app` (production build), `pnpm run cleanup` (clear `dist/` and `coverage/`).
+- **Other checks**: `pnpm run test:static` (security + lint + format), `pnpm run test:dynamic` (Angular tests), `pnpm run build:app` (production build), `pnpm run cleanup` (clear `dist/` and `coverage/`).
 - **Git hooks**: Husky runs lint-staged and the full `pnpm test` pipeline before commits. Override only with `--no-verify` when necessary.
 - **Editor-ready**: VS Code launch configs start the dev server before debugging and stop it when you end the session (`Angular: Chrome/Edge/Firefox`).
 - **Formatting & linting**: Prettier + ESLint configured for strict TypeScript; lint-staged applies fixes to staged files.

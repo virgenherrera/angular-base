@@ -33,9 +33,9 @@ jobs:
       - name: (Test:) static
         run: pnpm run test:static
 
-      - name: (Test:) Unit
+      - name: (Test:) Dynamic
         timeout-minutes: 15
-        run: pnpm run test:unit
+        run: pnpm run test:dynamic
 
       - name: (Build:) Project
         run: pnpm run build:app
