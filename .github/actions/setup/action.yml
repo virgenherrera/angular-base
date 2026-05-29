@@ -1,5 +1,5 @@
 name: "Setup Node.js & pnpm"
-description: "Composite action: instala pnpm, Node.js y dependencias del proyecto."
+description: "Composite action that installs pnpm, Node.js, and project dependencies."
 
 runs:
   using: "composite"

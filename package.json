@@ -41,7 +41,7 @@
     "@angular/compiler-cli": "21.2.15",
     "@eslint/js": "10.0.1",
     "@types/node": "25.9.1",
-    "@vitest/coverage-v8": "4.0.18",
+    "@vitest/coverage-v8": "4.1.7",
     "eslint": "10.0.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-prettier": "5.5.6",
