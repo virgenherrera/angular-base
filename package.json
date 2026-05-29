@@ -6,7 +6,7 @@
     "test": "pnpm run cleanup && pnpm run test:static && pnpm run test:dynamic && pnpm run build:app",
     "build": "pnpm run build:app",
     "watch": "ng build --watch --configuration development",
-    "test:doctor": "pnpm run cleanup && pnpm run eslintCheck && pnpm run prettierCheck && pnpm run test:dynamic && pnpm run build:app",
+    "test:doctor": "pnpm run cleanup && pnpm run securityCheck && pnpm run eslintCheck && pnpm run prettierCheck && pnpm run test:dynamic && pnpm run build:app",
     "test:static": "pnpm run securityCheck && pnpm run eslintCheck && pnpm run prettierCheck",
     "test:dynamic": "ng test --configuration=ci",
     "watch:test": "ng test --configuration=watch",
