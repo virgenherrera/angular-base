@@ -40,8 +40,4 @@ overrides:
 minimumReleaseAgeExclude: []
 
 auditConfig:
-  # Angular 21.1.x has known XSS/compiler vulnerabilities patched in 21.2.4+.
-  # These require a proper Angular version bump (separate task) — not safe as transitive overrides.
-  ignoreGhsas:
-    - GHSA-prjf-86w9-mfqv  # @angular/core i18n XSS (patched >=21.1.6)
-    - GHSA-g93w-mfhg-p222  # @angular/core + @angular/compiler i18n XSS (patched >=21.2.4)
+  ignoreGhsas: []
