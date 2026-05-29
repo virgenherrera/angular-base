@@ -52,10 +52,8 @@ Match your local runtime with the versions declared in the `engines` field insid
 | `pnpm run test:doctor`      | Identical to `test` — used as NCU's per-dependency validation gate. See [Dependency management and security](#dependency-management-and-security). |
 | `pnpm run test:static`      | Security audit + ESLint + Prettier checks only (no tests, no build).                                                                               |
 | `pnpm run test:dynamic`     | Run Vitest unit tests via `ng test --configuration=ci`.                                                                                            |
-| `pnpm run watch:test`       | Run Vitest in watch mode with continuous coverage output.                                                                                          |
 | `pnpm run build`            | Alias for `build:app`.                                                                                                                             |
 | `pnpm run build:app`        | Production build via `ng build`.                                                                                                                   |
-| `pnpm run watch`            | Build in watch mode with development configuration.                                                                                                |
 | `pnpm run cleanup`          | Remove `.angular/`, `coverage/`, and `dist/`.                                                                                                      |
 | `pnpm run eslintCheck`      | Run ESLint on all TypeScript files under `src/`.                                                                                                   |
 | `pnpm run prettierCheck`    | Check formatting for `src/` and `public/` files.                                                                                                   |
@@ -76,7 +74,6 @@ Husky runs `lint-staged` before every commit to keep formatting and linting gree
 - Coverage is collected automatically in CI mode. Reports land in `coverage/` as both LCOV and plain text.
 - Open `coverage/index.html` in your browser to browse the HTML report.
 - Coverage thresholds are set at 80% for all four metrics (statements, branches, functions, lines) and enforced by `angular.json`. A test run that falls below any threshold fails the build.
-- The `ci` configuration is the default; the `watch` configuration keeps Vitest running in the background and re-runs affected tests on file save.
 
 ## Dependency management and security
 

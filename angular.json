@@ -84,10 +84,6 @@
             "ci": {
               "watch": false,
               "coverage": true
-            },
-            "watch": {
-              "watch": true,
-              "coverage": true
             }
           },
           "defaultConfiguration": "ci"
