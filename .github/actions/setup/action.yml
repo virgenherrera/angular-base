@@ -1,0 +1,18 @@
+name: "Setup Node.js & pnpm"
+description: "Composite action: instala pnpm, Node.js y dependencias del proyecto."
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v6
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v6
+      with:
+        node-version-file: ".node-version"
+        cache: "pnpm"
+
+    - name: Install dependencies
+      shell: bash
+      run: pnpm install --frozen-lockfile

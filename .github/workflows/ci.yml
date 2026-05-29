@@ -1,41 +1,39 @@
-# CI pipeline mirroring the local scripts used by developers
-
 name: Continuous Integration
 
 on:
   pull_request:
     branches:
       - master
+      - main
+      - develop
 
 jobs:
-  code-quality:
-    name: Code Quality
+  ci:
+    name: CI Pipeline
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v6
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: "10.29.3"
+      - name: Setup environment
+        uses: ./.github/actions/setup
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: "24.13.0"
-          cache: "pnpm"
+      # Static Analysis
+      - name: Security audit
+        run: pnpm run securityCheck
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+      - name: ESLint
+        run: pnpm run eslintCheck
 
-      - name: (Test:) static
-        run: pnpm run test:static
+      - name: Prettier
+        run: pnpm run prettierCheck
 
-      - name: (Test:) Dynamic
+      # Tests
+      - name: Tests
         timeout-minutes: 15
         run: pnpm run test:dynamic
 
-      - name: (Build:) Project
+      # Build
+      - name: Build project
         run: pnpm run build:app
