@@ -3,8 +3,8 @@
   "codemetrics.basics.EnabledForHTML": false,
   "codemetrics.basics.MetricsForClassDeclarationsToggled": false,
   "editor.codeActionsOnSave": {
-    "source.organizeImports": "always",
-    "source.fixAll.eslint": "always"
+    "source.fixAll.eslint": "always",
+    "source.organizeImports": "always"
   },
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.minimap.enabled": false,
@@ -15,7 +15,7 @@
   "eslint.options": {
     "overrideConfigFile": "eslint.config.mjs"
   },
-  "eslint.validate": ["javascript", "json", "typescript", "mjs"],
+  "eslint.validate": ["javascript", "json", "mjs", "typescript"],
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
@@ -37,10 +37,10 @@
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "[yaml]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml"
-  },
   "[mjs]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
   }
 }
