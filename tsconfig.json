@@ -4,8 +4,7 @@
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictInputAccessModifiers": true
   },
   "compileOnSave": false,
   "compilerOptions": {
@@ -18,7 +17,6 @@
     "noImplicitReturns": true,
     "noPropertyAccessFromIndexSignature": true,
     "skipLibCheck": true,
-    "strict": true,
     "target": "ES2022"
   },
   "files": [],
