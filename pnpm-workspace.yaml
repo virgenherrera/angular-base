@@ -8,6 +8,7 @@ minimumReleaseAge: 1440
 # Investigate which deps need build permissions by running pnpm install and checking.
 allowBuilds:
   "@parcel/watcher": true
+  '@tailwindcss/oxide': true
   esbuild: true
   lmdb: true
   msgpackr-extract: true
