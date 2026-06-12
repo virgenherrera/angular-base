@@ -1,4 +1,4 @@
 {
-  "*.{js,json,mjs,ts,tsx}": ["prettier --write", "eslint --fix"],
-  "*.{css,html,md}": ["prettier --write"]
+  "*.{js,json,mjs,ts,tsx}": ["pnpm run prettierFix --", "pnpm run eslintFix --"],
+  "*.{css,html,md}": ["pnpm run prettierFix --"]
 }

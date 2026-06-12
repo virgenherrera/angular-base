@@ -1,15 +1,14 @@
-#!/usr/bin/env sh
-
 echo '
-INFO: This project has a pre-commit hook to execute linting, automatically fixing issues when possible.
+INFO: This project has a pre-commit hook that runs lintStaged (auto-fix staged files), test:dynamic (unit tests), and build (compilation).
 If necessary, you can disable this with the "--no-verify" flag during the commit.
 Example:
     "git commit -m <message> --no-verify"
 '
 
 pnpm run lintStaged && \
-pnpm run test || \
+pnpm run test:dynamic && \
+pnpm run build || \
 {
-  echo "ERROR: Linting or tests failed. Please address the issues before committing."
+  echo "ERROR: Pre-commit checks failed. Please address issues before proceeding."
   exit 1
 }
