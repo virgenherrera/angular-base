@@ -202,7 +202,7 @@ When invoking these scripts standalone during local development, pass the glob e
 
 ```bash
 pnpm run prettierFix -- '{src,public}/**/*.{ts,js,json,css,html,md}'
-pnpm run eslintFix -- 'src/**/*.ts'
+pnpm run eslintFix -- '.'
 ```
 
 [(back to menu)](#navigation)
@@ -213,16 +213,18 @@ pnpm run eslintFix -- 'src/**/*.ts'
 
 `.lintstagedrc.json` has two rules:
 
-| Rule                     | Extensions   | Tools                       |
-| ------------------------ | ------------ | --------------------------- |
-| `*.{js,json,mjs,ts,tsx}` | 5 extensions | `prettierFix` + `eslintFix` |
-| `*.{css,html,md}`        | 3 extensions | `prettierFix` only          |
+| Rule                        | Extensions   | Tools                       |
+| --------------------------- | ------------ | --------------------------- |
+| `*.{js,json,md,mjs,ts,tsx}` | 6 extensions | `prettierFix` + `eslintFix` |
+| `*.{css,html}`              | 2 extensions | `prettierFix` only          |
 
 The check scripts (`eslintCheck`, `prettierCheck`) target different scopes:
 
-- `eslintCheck`: `src/**/*.ts` — TypeScript only
+- `eslintCheck`: `eslint .` — TypeScript, JSON, and Markdown files (scoped by `eslint.config.mjs`)
 - `prettierCheck`: `{src,public}/**/*.{ts,js,json,css,html,md}` — all formattable files
 
-This means lint-staged applies fixes to all staged files matching either rule, while CI's `eslintCheck` only validates `.ts` files. ESLint does not process CSS, HTML, or Markdown — that second lint-staged rule uses `prettierFix` only, which is correct. A formatting regression in a non-`.ts` file would be caught by `prettierCheck` in CI (via `test:static`), since its glob includes those extensions.
+This means lint-staged applies fixes to all staged files matching either rule. CI verifies `.ts` files via `eslintCheck`/`prettierCheck` and `.md`/`.json` files via `eslintCheck`. ESLint does not process CSS or HTML — the second lint-staged rule uses `prettierFix` only, which is correct.
+
+The echo principle is maintained for all files under `src/` and `public/`. Root-level files (`README.md`, `package.json`, `.lintstagedrc.json`, etc.) are prettier-fixed by lint-staged at commit time but are not covered by `prettierCheck` in CI — this is an accepted scope difference since Angular source lives entirely under `src/`.
 
 [(back to menu)](#navigation)

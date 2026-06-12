@@ -55,7 +55,7 @@ Match your local runtime with the versions declared in the `engines` field insid
 | `pnpm run build`            | Alias for `build:app`.                                                                                                                             |
 | `pnpm run build:app`        | Production build via `ng build`.                                                                                                                   |
 | `pnpm run cleanup`          | Remove `.angular/`, `coverage/`, and `dist/`.                                                                                                      |
-| `pnpm run eslintCheck`      | Run ESLint on all TypeScript files under `src/`.                                                                                                   |
+| `pnpm run eslintCheck`      | Run ESLint on TypeScript, JSON, and Markdown files. File targeting lives in `eslint.config.mjs`.                                                   |
 | `pnpm run prettierCheck`    | Check formatting for `src/` and `public/` files.                                                                                                   |
 | `pnpm run securityCheck`    | Run `pnpm audit --audit-level high`. Fails on high or critical vulnerabilities.                                                                    |
 | `pnpm run securityFix`      | Run `pnpm update` to pull the latest semver-compatible versions of all dependencies, including transitive ones.                                    |
